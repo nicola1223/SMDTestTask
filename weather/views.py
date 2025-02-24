@@ -21,8 +21,8 @@ class WeatherView(APIView):
 class WeatherListView(APIView):
     @staticmethod
     def get(request):
-        next_page = 1
-        previous_page = 1
+        next_page = None
+        previous_page = None
         weather_list = Weather.objects.all()
         page = request.GET.get('page', 1)
         paginator = Paginator(weather_list, 10)
@@ -43,8 +43,8 @@ class WeatherListView(APIView):
                 'data': serializer.data,
                 'count': paginator.count,
                 'num_pages': paginator.num_pages,
-                'nextlink': f'{reverse('weather_list')}?page={next_page}',
-                'prevlink': f'{reverse('weather_list')}?page={previous_page}',
+                'nextlink': f'{reverse('weather_list')}?page={next_page}' if next_page else '',
+                'prevlink': f'{reverse('weather_list')}?page={previous_page}' if previous_page else '',
             },
             status=status.HTTP_200_OK
         )
