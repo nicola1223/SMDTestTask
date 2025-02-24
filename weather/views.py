@@ -23,7 +23,7 @@ class WeatherListView(APIView):
     def get(request):
         next_page = None
         previous_page = None
-        weather_list = Weather.objects.all().reverse()
+        weather_list = Weather.objects.all().order_by('-id')
         page = request.GET.get('page', 1)
         paginator = Paginator(weather_list, 10)
         try:
