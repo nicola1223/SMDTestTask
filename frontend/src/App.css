@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.weather-get {
+  display: flex;
+  width: 500px;
+  padding: 5px;
+}
