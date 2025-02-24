@@ -66,7 +66,7 @@ const WeatherList = () => {
                 <tbody>
                     {weatherList.map((c) => (
                         <tr>
-                            <td>{c.pk}</td>
+                            <td>{c.id}</td>
                             <td>{c.city_name}</td>
                             <td>{
                                 new Date(c.timestamp).toLocaleString('ru-RU', {
