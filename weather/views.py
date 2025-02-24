@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from services.weather_api import WeatherApi
+from .services.weather_api import WeatherApi
 
 class WeatherView(APIView):
     @staticmethod
@@ -8,4 +8,4 @@ class WeatherView(APIView):
         city = request.GET.get('city')
         response = WeatherApi.get_weather_forecast(city)
         print(response)
-        # TODO доделать логику
+        Response(response)
