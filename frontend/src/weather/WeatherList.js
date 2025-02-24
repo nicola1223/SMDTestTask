@@ -4,7 +4,7 @@ import weatherService from "./WeatherService";
 const WeatherList = () => {
     const [weatherList, setWeatherList] = useState([]);
     const [nextPageUrl, setNextPageUrl] = useState('');
-    const [pervPageUrl, setPervPageUrl] = useState('');
+    const [prevPageUrl, setPrevPageUrl] = useState('');
 
     useEffect(() => {
         const fetchWeatherList = async () => {
@@ -12,7 +12,7 @@ const WeatherList = () => {
                 const result = await weatherService.getWeatherList();
                 setWeatherList(result.data);
                 setNextPageUrl(result.nextlink);
-                setPervPageUrl(result.pervlink);
+                setPrevPageUrl(result.prevlink);
             } catch (error) {
                 console.error("Error fetching weather list:", error);
             }
@@ -28,20 +28,20 @@ const WeatherList = () => {
             const result = await weatherService.getWeatherListByUrl(nextPageUrl);
             setWeatherList(result.data);
             setNextPageUrl(result.nextlink);
-            setPervPageUrl(result.pervlink);
+            setPrevPageUrl(result.prevlink);
         }  catch (error) {
             console.error("Error fetching next page:", error);
         }
     }
 
-    const pervPage = async () => {
-        if (!pervPageUrl) return;
+    const prevPage = async () => {
+        if (!prevPageUrl) return;
 
         try {
-            const result = await weatherService.getWeatherListByUrl(pervPageUrl);
+            const result = await weatherService.getWeatherListByUrl(prevPageUrl);
             setWeatherList(result.data);
             setNextPageUrl(result.nextlink);
-            setPervPageUrl(result.pervlink);
+            setPrevPageUrl(result.prevlink);
         }  catch (error) {
             console.error("Error fetching next page:", error);
         }
@@ -84,6 +84,10 @@ const WeatherList = () => {
                     ))}
                 </tbody>
             </table>
+            <div className={'d-flex justify-content-between'}>
+                {prevPageUrl && <button className="btn btn-primary" onClick={prevPage}>Prev</button>}
+                {nextPageUrl && <button className="btn btn-primary ms-auto" onClick={nextPage}>Next</button>}
+            </div>
         </div>
     );
 }
