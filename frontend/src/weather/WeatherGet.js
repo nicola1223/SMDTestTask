@@ -31,19 +31,26 @@ const WeatherGet = () => {
             weatherHumidity.current.textContent = `${c.weather_humidity}%`;
             weatherWindSpeed.current.textContent = `${c.weather_wind_speed} m/s`;
         }).catch((error) => {
-            console.error("Error fetching data:", error);
+            cityName.current.innerHTML = "<span style='color: red'>Error fetching data</span>"
+            timestamp.current.textContent = "";
+            weatherMain.current.textContent = "";
+            weatherDesc.current.textContent = "";
+            weatherTemp.current.textContent = "";
+            weatherFeelsLike.current.textContent = "";
+            weatherHumidity.current.textContent = "";
+            weatherWindSpeed.current.textContent = "";
         });
     };
 
     return (
-        <div className={'weather-get'}>
-            <form onSubmit={handleSubmit}>
-                <input className={'form-control'} id={'city'} type={'text'} ref={city} placeholder={'Город'} required/>
-                <div className="submit">
+        <div className={'weather-get ms-auto me-auto'}>
+            <form className={'m-1'} onSubmit={handleSubmit}>
+                <input className={'form-control m-1'} id={'city'} type={'text'} ref={city} placeholder={'Город'} required/>
+                <div className="submit text-center mb-3">
                     <input className="btn btn-primary" type="submit" value="GET WEATHER"/>
                 </div>
             </form>
-            <div className="card">
+            <div className="card m-1">
                 <div className="card-body">
                     <h5 className="card-title" ref={cityName}></h5>
                     <h6 className="card-subtitle mb-2 text-muted" ref={timestamp}></h6>

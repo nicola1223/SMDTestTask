@@ -10,7 +10,7 @@ const BaseLayout = () => {
         <div>
             <nav className={'navbar navbar-expand-lg navbar-dark bg-dark'}>
                 <Link className={'navbar-brand'} to={'/'}>
-                    <span>WEATHER APP</span>
+                    <span className={'m-3'}>WEATHER APP</span>
                 </Link>
                 <button className={'navbar-toggler'} type={'button'} data-bs-toggle={'collapse'}
                         data-bs-targe={'#navbarNavAltMarkup'} aria-controls={'navbarNavAltMarkup'} aria-expanded="false"
