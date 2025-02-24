@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Link, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import WeatherGet from "./weather/WeatherGet";
+import WeatherList from "./weather/WeatherList";
 
 const BaseLayout = () => {
     return (
@@ -28,7 +29,7 @@ const BaseLayout = () => {
                 <div className={'content'}>
                     <Routes>
                         <Route path={'/'} element={<WeatherGet/>} />
-                        {/*<Route path={'/history'} element={<WeatherList/>} />*/}
+                        <Route path={'/history'} element={<WeatherList/>} />
                     </Routes>
                 </div>
             </div>
