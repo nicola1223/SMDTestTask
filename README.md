@@ -43,6 +43,18 @@ POSTGRESQL_PASSWORD='<SAME AS DB_PASSWORD>'
 docker compose up --build
 ```
 
+При выдаче ошибки:
+
+```bash
+exec ./entrypoint.sh: no such file or directory
+```
+
+Выполните команду
+
+```bash
+dos2unix entrypoint.sh
+```
+
 4. **Доступ к приложению**
 
 Бэкенд будет доступен на [localhost:8000](http://localhost:8000)
