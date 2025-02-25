@@ -40,7 +40,7 @@ POSTGRESQL_PASSWORD='<SAME AS DB_PASSWORD>'
 Убедитесь, что у вас установлен Docker и Docker Compose. Затем выполните команду:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 4. **Доступ к приложению**
