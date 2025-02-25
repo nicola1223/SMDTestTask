@@ -55,9 +55,9 @@ PostgreSQL будет доступен на порту 5432.
 
 Для остановки контейнеров:
 ```bash
-docker-compose down
+docker compose down
 ```
 Для перезапуска контейнеров:
 ```bash
-docker-compose restart
+docker compose restart
 ```
